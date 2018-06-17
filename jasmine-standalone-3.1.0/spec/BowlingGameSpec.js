@@ -23,10 +23,17 @@ describe("BowlingGame", function() {
     expect(bowlingGame.score()).toEqual(12)
   });
 
+  it('can score a strike', function(){
+    bowlingGame.roll(10);
+    bowlingGame.roll(2);
+    bowlingGame.roll(1);
+    expect(bowlingGame.score()).toEqual(16);
+  });
+
   function multipleRolls(pins, number){
     for(var i=0; i<number; i++){
       bowlingGame.roll(pins);
     }
   }
-  
+
 });
