@@ -1,19 +1,23 @@
 describe("BowlingGame", function() {
   var bowlingGame;
 
-  it ('can score a Gutter Game', function(){
+  beforeEach(function(){
     bowlingGame = new BowlingGame();
-    for(var i=0; i<21; i++){
-      bowlingGame.roll(0);
-    }
+  });
+
+  it ('can score a Gutter Game', function(){
+    multipleRolls(0, 20);
     expect(bowlingGame.score()).toEqual(0)
   });
 
   it('can score a game of incomplete frames', function(){
-    bowlingGame = new BowlingGame();
-    for(var i=0; i<20; i++){
-      bowlingGame.roll(2);
-    }
+    multipleRolls(2, 20);
     expect(bowlingGame.score()).toEqual(40)
   });
+
+  function multipleRolls(pins, number){
+    for(var i=0; i<number; i++){
+      bowlingGame.roll(pins);
+    }
+  }
 });
