@@ -12,7 +12,7 @@ BowlingGame.prototype.score = function() {
   var numberOfRolls = this.rolls.length
   for(var i = 0; i < numberOfRolls ;i++){
     this.current_score += this.rolls[i];
-    if (this.rolls[i] === 10){
+    if (this.isStrike(i)){
       this.current_score += this.rolls[this.index_counter + 1] + this.rolls[this.index_counter + 2];
     }
     if (this.isSpare()){
@@ -25,4 +25,8 @@ BowlingGame.prototype.score = function() {
 
 BowlingGame.prototype.isSpare = function () {
   return (this.rolls[this.index_counter] + this.rolls[this.index_counter + 1]) === 10
+};
+
+BowlingGame.prototype.isStrike = function (i) {
+  return this.rolls[i] === 10
 };
