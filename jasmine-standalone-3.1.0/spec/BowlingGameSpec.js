@@ -28,4 +28,5 @@ describe("BowlingGame", function() {
       bowlingGame.roll(pins);
     }
   }
+  
 });
