@@ -15,7 +15,7 @@ describe("BowlingGame", function() {
     expect(bowlingGame.score()).toEqual(40)
   });
 
-  it('can score a spare', function(){
+  it('can score a spare and roll 1 after', function(){
     bowlingGame.roll(8);
     bowlingGame.roll(2);
     bowlingGame.roll(1);
@@ -23,11 +23,17 @@ describe("BowlingGame", function() {
     expect(bowlingGame.score()).toEqual(12)
   });
 
-  it('can score a strike', function(){
+  it('can score a strike and roll 2 and 1 after', function(){
     bowlingGame.roll(10);
     bowlingGame.roll(2);
     bowlingGame.roll(1);
+    multipleRolls(0,16);
     expect(bowlingGame.score()).toEqual(16);
+  });
+
+  it('can score a perfect game', function(){
+    multipleRolls(10,12);
+    expect(bowlingGame.score()).toEqual(300);
   });
 
   function multipleRolls(pins, number){
