@@ -40,6 +40,5 @@ describe("BowlingGame", function() {
     for(var i=0; i<number; i++){
       bowlingGame.roll(pins);
     }
-  }
-
+  };
 });
